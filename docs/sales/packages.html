@@ -1,0 +1,29 @@
+<h1>B2B Rust API Suite — Packages</h1>
+<p>Use this as the source of truth when quoting buyers for API access and licensing.</p>
+<ul>
+  <li><a href="index.html">Back to sales page</a></li>
+  <li><a href="checklist.html">Completion checklist</a></li>
+</ul>
+<pre id="quote"></pre>
+<script>
+(async () => {
+  const quote = `[API Trial]
+ - Single API access
+ - Development environment
+ - Integration support
+ - No commitment
+
+[Production License]
+ - API volume tiers
+ - Self-hosted deployment
+ - Deterministic SLA targets
+ - Standard support
+
+[Enterprise]
+ - Multi-API access
+ - Custom packaging
+ - SLA and onboarding
+ - Dedicated support`;
+  document.getElementById('quote').textContent = quote;
+})();
+</script>

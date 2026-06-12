@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B Rust API Opportunity Suite — API Infrastructure</title>
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --panel: #0F0F0F;
+      --border: #1E1E1E;
+      --ink: #EBEBEB;
+      --muted: #8A8A8A;
+      --accent: #FFB000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header { border-bottom: 1px solid var(--border); padding: 24px 0; }
+    nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { font-weight: 700; font-size: 1.05rem; letter-spacing: 0.08em; }
+    .links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; margin-left: 22px; }
+    .links a:hover { color: var(--ink); }
+    .hero { padding: 100px 0 72px; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      max-width: 900px;
+    }
+    .sub { margin-top: 24px; color: var(--muted); font-size: 1.05rem; max-width: 640px; }
+    .actions { margin-top: 36px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 24px; border-radius: 8px; font-weight: 600;
+      text-decoration: none; font-size: 0.95rem; border: 1px solid transparent; cursor: pointer;
+    }
+    .primary { background: var(--accent); color: #000; }
+    .secondary { background: transparent; color: var(--ink); border-color: var(--border); }
+    .stack { margin: 80px 0; }
+    .stack h2 { margin: 0; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; }
+    .muted { color: var(--muted); }
+    .accent { color: var(--accent); }
+    .grid { display: grid; gap: 24px; }
+    .four { grid-template-columns: repeat(4, 1fr); }
+    .two { grid-template-columns: repeat(2, 1fr); }
+    .three { grid-template-columns: repeat(3, 1fr); }
+    .panel {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 24px;
+      border-radius: 10px;
+    }
+    .price {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 24px;
+      border-radius: 10px;
+    }
+    .price.featured { border-color: var(--accent); }
+    .price h4 { margin: 0; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .price .amount { margin-top: 14px; font-size: 1.6rem; font-weight: 700; }
+    .price ul { margin-top: 18px; padding-left: 0; list-style: none; }
+    .price li { padding: 6px 0; color: var(--muted); font-size: 0.95rem; }
+    .price li::before { content: "✓ "; color: var(--accent); }
+    .price .cta { margin-top: 18px; }
+    .price .cta a {
+      display: block; text-align: center; padding: 10px 12px; border-radius: 6px;
+      background: var(--accent); color: #000; text-decoration: none; font-weight: 600;
+    }
+    .proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 80px 0 64px; }
+    .metric { border: 1px solid var(--border); background: var(--panel); padding: 24px; border-radius: 10px; }
+    .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
+    .value { margin-top: 14px; font-size: 1.8rem; font-weight: 700; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-item h4 { margin: 0 0 6px; font-weight: 600; }
+    .faq-item p { margin: 0; color: var(--muted); }
+    footer { border-top: 1px solid var(--border); padding: 36px 0; color: var(--muted); }
+    @media (max-width: 860px) {
+      .four, .two, .three, .proof { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="logo">B2B Rust API Suite</div>
+        <div class="links">
+          <a href="#apis">APIs</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="mailto:scott@hardonian.com?subject=B2B%20Rust%20API%20Inquiry">Request Access</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">API Infrastructure · Operational Domains</div>
+      <h1>
+        <span class="accent">Five Rust microservice APIs</span> for compliance, finance, recall, warranty, and construction operations.
+      </h1>
+      <p class="sub">
+        Each API is built on the same stack: Axum, SQLx, Postgres, Redis, OpenAPI, Docker, and deterministic business logic designed for B2B integration.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:scott@hardonian.com?subject=B2B%20Rust%20API%20Enterprise%20Inquiry">Talk to Sales</a>
+        <a class="btn secondary" href="#pricing">See Deployment Options</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap stack" id="apis">
+    <h2>API Catalog</h2>
+    <p class="muted">Ranked by buyer readiness and delivery confidence.</p>
+    <div class="grid three" style="margin-top:28px;">
+      <div class="panel">
+        <h4 style="margin:0 0 10px;">trade-compliance-api</h4>
+        <p class="muted">Tariff classification, landed cost, restricted-party screening, shipment validation.</p>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 10px;">utility-bill-normalization-api</h4>
+        <p class="muted">Standardize utility/meter/bill exports into normalized records for CRE, energy, and benchmarking workflows.</p>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 10px;">recall-intelligence-api</h4>
+        <p class="muted">Recall feed normalization and catalog matching for product risk detection.</p>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 10px;">warranty-infrastructure-api</h4>
+        <p class="muted">Registration, entitlements, claims adjudication, supplier recovery, reserve analytics.</p>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 10px;">construction-change-order-api</h4>
+        <p class="muted">RFIs, change events, change orders, approvals, and budget variance.</p>
+      </div>
+      <div class="panel">
+        <h4 style="margin:0 0 10px;">Stack</h4>
+        <p class="muted">Rust, Axum, SQLx, Postgres, Redis, NATS JetStream, MinIO, OpenAPI, Docker Compose.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap stack" id="pricing">
+    <h2>Pricing</h2>
+    <div class="grid three" style="margin-top:28px;">
+      <div class="price">
+        <h4>API Trial</h4>
+        <div class="amount">Evaluation</div>
+        <ul>
+          <li>Single API access</li>
+          <li>Development environment</li>
+          <li>Integration support</li>
+          <li>No commitment</li>
+        </ul>
+        <div class="cta"><a href="mailto:scott@hardonian.com?subject=B2B%20API%20Trial">Request Trial</a></div>
+      </div>
+      <div class="price featured">
+        <h4>Production License</h4>
+        <div class="amount">Usage-Based</div>
+        <ul>
+          <li>API volume tiers</li>
+          <li>Self-hosted deployment</li>
+          <li>Deterministic SLA targets</li>
+          <li>Standard support</li>
+        </ul>
+        <div class="cta"><a href="mailto:scott@hardonian.com?subject=B2B%20Production%20License">Request Quote</a></div>
+      </div>
+      <div class="price">
+        <h4>Enterprise</h4>
+        <div class="amount">Custom</div>
+        <ul>
+          <li>Multi-API access</li>
+          <li>Custom packaging</li>
+          <li>SLA and onboarding</li>
+          <li>Dedicated support</li>
+        </ul>
+        <div class="cta"><a href="mailto:scott@hardonian.com?subject=B2B%20Enterprise">Contact Sales</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap stack" id="faq">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <h4>What do I get first?</h4>
+      <p class="muted">Start with trade-compliance-api, then expand to the other APIs by domain need.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How is licensing structured?</h4>
+      <p class="muted">Contact sales for API trial, production license, or enterprise packaging.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can I run this on-premises?</h4>
+      <p class="muted">Yes. Each API ships with Docker and docker-compose for self-hosted operation.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="muted">Contact: scott@hardonian.com</div>
+    </div>
+  </footer>
+</body>
+</html>
