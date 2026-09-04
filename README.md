@@ -1,5 +1,9 @@
 # B2B Rust Microservice Opportunity Suite
 
+<!-- BEGIN: REPO HERO -->
+![b2b-rust-api-opportunity-suite — hero generated locally on the GPU stack](assets/repo-hero.png)
+<!-- END: REPO HERO -->
+
 Five domain-led Rust microservice APIs built on the same production standards:
 local data quality, deterministic business logic, lean operations, and measurable buyer value.
 
